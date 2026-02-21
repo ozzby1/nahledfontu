@@ -29,6 +29,7 @@
     }
 
     html, body {
+      overflow: hidden; /* Zakázání vnitřního scrollování */
       background: #f7f7f7;
       color: #1a1a1a;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -171,93 +172,4 @@
 
     <div class="font-card">
       <div class="font-name">Písmo 5</div>
-      <div class="font-preview empty" style="font-family: 'AmericanTypewriter', serif;">Váš text se zobrazí zde</div>
-    </div>
-
-    <div class="font-card">
-      <div class="font-name">Písmo 6</div>
-      <div class="font-preview empty" style="font-family: 'KaushanScript', cursive;">Váš text se zobrazí zde</div>
-    </div>
-
-    <div class="font-card">
-      <div class="font-name">Písmo 7</div>
-      <div class="font-preview empty" style="font-family: 'Sacramento', cursive;">Váš text se zobrazí zde</div>
-    </div>
-
-    <div class="font-card">
-      <div class="font-name">Písmo 8</div>
-      <div class="font-preview empty" style="font-family: 'GlassAntiqua', serif;">Váš text se zobrazí zde</div>
-    </div>
-
-    <div class="font-card">
-      <div class="font-name">Písmo 9</div>
-      <div class="font-preview empty" style="font-family: 'AppleChancery', cursive;">Váš text se zobrazí zde</div>
-    </div>
-
-    <div class="font-card">
-      <div class="font-name">Písmo 10</div>
-      <div class="font-preview empty" style="font-family: 'LowCasatMed', serif;">Váš text se zobrazí zde</div>
-    </div>
-
-    <div class="font-card">
-      <div class="font-name">Písmo 11</div>
-      <div class="font-preview empty" style="font-family: 'GrandHotel', cursive;">Váš text se zobrazí zde</div>
-    </div>
-
-    <div class="font-card">
-      <div class="font-name">Písmo 12</div>
-      <div class="font-preview empty" style="font-family: 'AmaticSC', sans-serif; font-weight: bold;">Váš text se zobrazí zde</div>
-    </div>
-
-    <div class="font-card">
-      <div class="font-name">Písmo 13</div>
-      <div class="font-preview empty" style="font-family: 'BiteChocolate', cursive;">Váš text se zobrazí zde</div>
-    </div>
-
-    <div class="font-card">
-      <div class="font-name">Písmo 14</div>
-      <div class="font-preview empty" style="font-family: 'AnandaBlack', sans-serif;">Váš text se zobrazí zde</div>
-    </div>
-
-    <div class="font-card">
-      <div class="font-name">Písmo 15</div>
-      <div class="font-preview empty" style="font-family: 'SegoePrint', sans-serif;">Váš text se zobrazí zde</div>
-    </div>
-
-  </div>
-
-  <script>
-    const input = document.getElementById('textInput');
-    const previews = document.querySelectorAll('.font-preview');
-    const placeholderText = 'Váš text se zobrazí zde';
-
-    input.addEventListener('input', () => {
-      const val = input.value;
-      previews.forEach(el => {
-        if (val.trim().length > 0) {
-          el.textContent = val;
-          el.classList.remove('empty');
-        } else {
-          el.textContent = placeholderText;
-          el.classList.add('empty');
-        }
-      });
-      // Po změně obsahu znovu pošli výšku
-      sendHeight();
-    });
-
-    // Automatická výška pro iframe
-    function sendHeight() {
-      const height = document.body.scrollHeight;
-      window.parent.postMessage({ iframeHeight: height }, '*');
-    }
-
-    window.addEventListener('load', sendHeight);
-    window.addEventListener('resize', sendHeight);
-
-    const observer = new ResizeObserver(sendHeight);
-    observer.observe(document.body);
-  </script>
-
-</body>
-</html>
+      <div class="font-preview empty" style="font-family: 'Am
