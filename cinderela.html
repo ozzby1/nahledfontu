@@ -27,7 +27,7 @@
     }
 
     body {
-      padding: 24px 20px;
+      padding: 20px;
     }
 
     .label {
@@ -40,12 +40,12 @@
     }
 
     .input-wrapper {
-      margin-bottom: 28px;
+      margin-bottom: 20px;
     }
 
     input[type="text"] {
       width: 100%;
-      padding: 13px 16px;
+      padding: 12px 16px;
       font-size: 15px;
       font-family: inherit;
       color: #1a1a1a;
@@ -65,24 +65,24 @@
     }
 
     .preview-box {
-      min-height: 100px;
       border: 1.5px solid #e0e0e0;
       border-radius: 10px;
+      padding: 20px 24px;
+      background: #ffffff;
+      min-height: 80px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
-      background: #ffffff;
-      overflow: hidden;
     }
 
     .preview-text {
       font-family: 'Cinderela', cursive;
-      font-size: clamp(28px, 6vw, 56px);
+      font-size: 36px;
       color: #1a1a1a;
       text-align: center;
-      line-height: 1.35;
+      line-height: 1.4;
       word-break: break-word;
+      width: 100%;
     }
 
     .placeholder-hint {
@@ -105,7 +105,7 @@
     />
   </div>
 
-  <div class="preview-wrapper">
+  <div>
     <div class="label">Náhled</div>
     <div class="preview-box" id="previewBox">
       <span class="placeholder-hint" id="hint">Váš text se zobrazí zde</span>
@@ -119,7 +119,7 @@
     const hint = document.getElementById('hint');
 
     function sendHeight() {
-      const height = document.body.scrollHeight;
+      const height = document.documentElement.scrollHeight;
       window.parent.postMessage({ iframeHeight: height }, '*');
     }
 
@@ -133,13 +133,11 @@
         previewText.style.display = 'none';
         hint.style.display = 'block';
       }
-      sendHeight();
+      setTimeout(sendHeight, 50);
     });
 
-    // Pošli výšku hned po načtení
-    window.addEventListener('load', sendHeight);
-    // A ještě jednou po chvíli pro jistotu
-    setTimeout(sendHeight, 300);
+    window.addEventListener('load', () => setTimeout(sendHeight, 100));
+    setTimeout(sendHeight, 500);
   </script>
 
 </body>
