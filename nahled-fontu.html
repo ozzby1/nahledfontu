@@ -242,21 +242,22 @@
           el.classList.add('empty');
         }
       });
+      // Po změně obsahu znovu pošli výšku
+      sendHeight();
     });
+
+    // Automatická výška pro iframe
+    function sendHeight() {
+      const height = document.body.scrollHeight;
+      window.parent.postMessage({ iframeHeight: height }, '*');
+    }
+
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
+
+    const observer = new ResizeObserver(sendHeight);
+    observer.observe(document.body);
   </script>
 
-<script>
-  function sendHeight() {
-    const height = document.body.scrollHeight;
-    window.parent.postMessage({ iframeHeight: height }, '*');
-  }
-
-  window.addEventListener('load', sendHeight);
-  window.addEventListener('resize', sendHeight);
-
-  const observer = new ResizeObserver(sendHeight);
-  observer.observe(document.body);
-</script>
-  
 </body>
 </html>
