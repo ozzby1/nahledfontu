@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Náhled fontů</title>
+  <style>
+    @font-face { font-family: 'LibreBaskerville'; src: url('fonts/LibreBaskerville-Regular.ttf') format('truetype'); }
+    @font-face { font-family: 'Pacifico'; src: url('fonts/Pacifico.ttf') format('truetype'); }
+    @font-face { font-family: 'Montserrat'; src: url('fonts/Montserrat-Bold.ttf') format('truetype'); font-weight: bold; }
+    @font-face { font-family: 'CenturyGothic'; src: url('fonts/Century-Gothic.ttf') format('truetype'); }
+    @font-face { font-family: 'AmericanTypewriter'; src: url('fonts/American-typewriter.ttf') format('truetype'); }
+    @font-face { font-family: 'KaushanScript'; src: url('fonts/KaushanScript-Regular.ttf') format('truetype'); }
+    @font-face { font-family: 'Sacramento'; src: url('fonts/Sacramento-Regular.ttf') format('truetype'); }
+    @font-face { font-family: 'GlassAntiqua'; src: url('fonts/GlassAntiqua.ttf') format('truetype'); }
+    @font-face { font-family: 'AppleChancery'; src: url('fonts/AppleChancery.ttf') format('truetype'); }
+    @font-face { font-family: 'LowCasatMed'; src: url('fonts/LowCasatMed.ttf') format('truetype'); }
+    @font-face { font-family: 'GrandHotel'; src: url('fonts/GrandHotel-Regular.ttf') format('truetype'); }
+    @font-face { font-family: 'AmaticSC'; src: url('fonts/AmaticSC-Bold.ttf') format('truetype'); font-weight: bold; }
+    @font-face { font-family: 'BiteChocolate'; src: url('fonts/Bite-Chocolate.ttf') format('truetype'); }
+    @font-face { font-family: 'AnandaBlack'; src: url('fonts/AnandaBlack.ttf') format('truetype'); }
+    @font-face { font-family: 'SegoePrint'; src: url('fonts/segoeprint.ttf') format('truetype'); }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background: #f7f7f7;
+      color: #1a1a1a;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    body {
+      padding: 28px 20px;
+    }
+
+    h1 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #1a1a1a;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 20px;
+    }
+
+    .input-wrapper {
+      margin-bottom: 24px;
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 13px 16px;
+      font-size: 15px;
+      font-family: inherit;
+      color: #1a1a1a;
+      background: #ffffff;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #aaa;
+    }
+
+    input[type="text"]::placeholder {
+      color: #bbb;
+    }
+
+    .font-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .font-card {
+      background: #ffffff;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 16px 20px;
+      transition: border-color 0.2s ease;
+    }
+
+    .font-card:hover {
+      border-color: #ccc;
+    }
+
+    .font-name {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 8px;
+    }
+
+    .font-preview {
+      font-size: 36px;
+      line-height: 1.3;
+      color: #1a1a1a;
+      min-height: 48px;
+      word-break: break-word;
+    }
+
+    .font-preview.empty {
+      font-size: 14px;
+      color: #ddd;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      min-height: 48px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Náhled fontů</h1>
+  <p class="subtitle">Napište text a okamžitě ho uvidíte ve všech písmech</p>
+
+  <div class="input-wrapper">
+    <div class="label">Váš text</div>
+    <input
+      type="text"
+      id="textInput"
+      placeholder="Napište slovo nebo větu…"
+      maxlength="80"
+      autocomplete="off"
+    />
+  </div>
+
+  <div class="font-grid">
+
+    <div class="font-card">
+      <div class="font-name">Písmo 1</div>
+      <div class="font-preview empty" style="font-family: 'LibreBaskerville', serif;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 2</div>
+      <div class="font-preview empty" style="font-family: 'Pacifico', cursive;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 3</div>
+      <div class="font-preview empty" style="font-family: 'Montserrat', sans-serif; font-weight: bold;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 4</div>
+      <div class="font-preview empty" style="font-family: 'CenturyGothic', sans-serif;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 5</div>
+      <div class="font-preview empty" style="font-family: 'AmericanTypewriter', serif;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 6</div>
+      <div class="font-preview empty" style="font-family: 'KaushanScript', cursive;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 7</div>
+      <div class="font-preview empty" style="font-family: 'Sacramento', cursive;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 8</div>
+      <div class="font-preview empty" style="font-family: 'GlassAntiqua', serif;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 9</div>
+      <div class="font-preview empty" style="font-family: 'AppleChancery', cursive;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 10</div>
+      <div class="font-preview empty" style="font-family: 'LowCasatMed', serif;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 11</div>
+      <div class="font-preview empty" style="font-family: 'GrandHotel', cursive;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 12</div>
+      <div class="font-preview empty" style="font-family: 'AmaticSC', sans-serif; font-weight: bold;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 13</div>
+      <div class="font-preview empty" style="font-family: 'BiteChocolate', cursive;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 14</div>
+      <div class="font-preview empty" style="font-family: 'AnandaBlack', sans-serif;">Váš text se zobrazí zde</div>
+    </div>
+
+    <div class="font-card">
+      <div class="font-name">Písmo 15</div>
+      <div class="font-preview empty" style="font-family: 'SegoePrint', sans-serif;">Váš text se zobrazí zde</div>
+    </div>
+
+  </div>
+
+  <script>
+    const input = document.getElementById('textInput');
+    const previews = document.querySelectorAll('.font-preview');
+    const placeholderText = 'Váš text se zobrazí zde';
+
+    input.addEventListener('input', () => {
+      const val = input.value;
+      previews.forEach(el => {
+        if (val.trim().length > 0) {
+          el.textContent = val;
+          el.classList.remove('empty');
+        } else {
+          el.textContent = placeholderText;
+          el.classList.add('empty');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
