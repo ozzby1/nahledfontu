@@ -28,14 +28,15 @@
       padding: 0;
     }
 
-    html, body {
-      overflow: visible; /* Umožní rodičovskému iframu měřit skutečnou výšku */
-      background: #f7f7f7;
-      color: #1a1a1a;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    html {
+      overflow: visible;
     }
 
     body {
+      overflow-y: auto;
+      background: #f7f7f7;
+      color: #1a1a1a;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       padding: 28px 20px;
     }
 
@@ -124,7 +125,6 @@
       align-items: center;
     }
 
-    /* Placeholder stav – stejná velikost, jen šedá barva */
     .font-preview.empty {
       color: #ccc;
     }
@@ -241,19 +241,7 @@
           el.classList.add('empty');
         }
       });
-      sendHeight();
     });
-
-    function sendHeight() {
-      const height = document.documentElement.scrollHeight;
-      window.parent.postMessage({ iframeHeight: height }, '*');
-    }
-
-    window.addEventListener('load', sendHeight);
-    window.addEventListener('resize', sendHeight);
-
-    const observer = new ResizeObserver(sendHeight);
-    observer.observe(document.documentElement);
   </script>
 
 </body>
