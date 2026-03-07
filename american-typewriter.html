@@ -67,12 +67,15 @@
     .preview-box {
       border: 1.5px solid #e0e0e0;
       border-radius: 10px;
-      padding: 20px 24px;
+      /* Větší padding nahoře kvůli háčkům nad velkými písmeny */
+      padding: 28px 24px 20px 24px;
       background: #ffffff;
       min-height: 80px;
       display: flex;
       align-items: center;
       justify-content: center;
+      /* Povolení přetečení pro diakritiku */
+      overflow: visible;
     }
 
     .preview-text {
@@ -80,9 +83,13 @@
       font-size: 48px;
       color: #1a1a1a;
       text-align: center;
-      line-height: 1.4;
+      /* Větší line-height aby háčky nebyly oříznuty */
+      line-height: 1.6;
       word-break: break-word;
       width: 100%;
+      /* Dostatek prostoru nad textem */
+      padding-top: 8px;
+      overflow: visible;
     }
 
     .placeholder-hint {
