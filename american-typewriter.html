@@ -5,14 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Náhled fontu American Typewriter</title>
+  <link rel="preconnect" href="https://fonts.cdnfonts.com">
+  <link href="https://fonts.cdnfonts.com/css/american-typewriter" rel="stylesheet">
   <style>
-    @font-face {
-      font-family: 'AmericanTypewriter';
-      src: url('fonts/American-typewriter.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -67,29 +62,22 @@
     .preview-box {
       border: 1.5px solid #e0e0e0;
       border-radius: 10px;
-      /* Větší padding nahoře kvůli háčkům nad velkými písmeny */
-      padding: 28px 24px 20px 24px;
+      padding: 20px 24px;
       background: #ffffff;
       min-height: 80px;
       display: flex;
       align-items: center;
       justify-content: center;
-      /* Povolení přetečení pro diakritiku */
-      overflow: visible;
     }
 
     .preview-text {
-      font-family: 'AmericanTypewriter', serif;
+      font-family: 'American Typewriter', 'Courier New', monospace;
       font-size: 48px;
       color: #1a1a1a;
       text-align: center;
-      /* Větší line-height aby háčky nebyly oříznuty */
-      line-height: 1.6;
+      line-height: 1.4;
       word-break: break-word;
       width: 100%;
-      /* Dostatek prostoru nad textem */
-      padding-top: 8px;
-      overflow: visible;
     }
 
     .placeholder-hint {
